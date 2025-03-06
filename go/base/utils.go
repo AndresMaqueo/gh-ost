@@ -122,17 +122,17 @@ func validateOceanBaseConnection(db *gosql.DB, migrationContext *MigrationContex
 	migrationContext.Log.Infof("OceanBase connection identified, version_comment: %v", versionComment)
 	migrationContext.OceanBase = true
 
-	if(len(migrationContext.GetMaxLoad()) != 0){
-		migrationContext.Log.Infof("DB is OceanBase , discard MaxLoad")
+	if len(migrationContext.GetMaxLoad()) != 0 {
+		migrationContext.Log.Infof("Discard maxLoad for OceanBase")
 		if err := migrationContext.ReadMaxLoad(""); err != nil {
-			migrationContext.Log.Fatale(err)
+			return err
 		}
 	}
 
-	if(len(migrationContext.GetCriticalLoad()) != 0){
-		migrationContext.Log.Infof("DB is OceanBase , discard CriticalLoad")
+	if len(migrationContext.GetCriticalLoad()) != 0 {
+		migrationContext.Log.Infof("Discard criticalLoad for OceanBase")
 		if err := migrationContext.ReadCriticalLoad(""); err != nil {
-			migrationContext.Log.Fatale(err)
+			return err
 		}
 	}
 
