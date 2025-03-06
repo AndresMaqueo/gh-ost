@@ -122,6 +122,20 @@ func validateOceanBaseConnection(db *gosql.DB, migrationContext *MigrationContex
 	migrationContext.Log.Infof("OceanBase connection identified, version_comment: %v", versionComment)
 	migrationContext.OceanBase = true
 
+	if(len(migrationContext.GetMaxLoad()) != 0){
+		migrationContext.Log.Infof("DB is OceanBase , discard MaxLoad")
+		if err := migrationContext.ReadMaxLoad(""); err != nil {
+			migrationContext.Log.Fatale(err)
+		}
+	}
+
+	if(len(migrationContext.GetCriticalLoad()) != 0){
+		migrationContext.Log.Infof("DB is OceanBase , discard CriticalLoad")
+		if err := migrationContext.ReadCriticalLoad(""); err != nil {
+			migrationContext.Log.Fatale(err)
+		}
+	}
+
 	enableLockPriorityQuery := `select value from oceanbase.GV$OB_PARAMETERS where name='enable_lock_priority'`
 	var enableLockPriority bool
 	if err := db.QueryRow(enableLockPriorityQuery).Scan(&enableLockPriority); err != nil {
