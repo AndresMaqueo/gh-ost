@@ -1,6 +1,6 @@
 module github.com/github/gh-ost
 
-go 1.23.0
+go 1.24.0
 
 require (
 	github.com/go-ini/ini v1.67.0
@@ -10,10 +10,10 @@ require (
 	github.com/openark/golib v0.0.0-20210531070646-355f37940af8
 	github.com/stretchr/testify v1.10.0
 	github.com/testcontainers/testcontainers-go v0.34.0
-	golang.org/x/net v0.38.0
-	golang.org/x/sync v0.12.0
-	golang.org/x/term v0.30.0
-	golang.org/x/text v0.23.0
+	golang.org/x/net v0.47.0
+	golang.org/x/sync v0.18.0
+	golang.org/x/term v0.37.0
+	golang.org/x/text v0.31.0
 )
 
 require (
@@ -69,8 +69,8 @@ require (
 	go.opentelemetry.io/otel/sdk v1.19.0 // indirect
 	go.opentelemetry.io/otel/trace v1.37.0 // indirect
 	go.uber.org/atomic v1.7.0 // indirect
-	golang.org/x/crypto v0.36.0 // indirect
-	golang.org/x/sys v0.31.0 // indirect
+	golang.org/x/crypto v0.45.0 // indirect
+	golang.org/x/sys v0.38.0 // indirect
 	golang.org/x/time v0.0.0-20220210224613-90d013bbcef8 // indirect
 	google.golang.org/genproto/googleapis/api v0.0.0-20230913181813-007df8e322eb // indirect
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20231002182017-d307bd883b97 // indirect
